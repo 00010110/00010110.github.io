@@ -2,13 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://00010110.github.io/categories/</loc>
+    <loc>https://00010110.github.io/</loc>
+    <lastmod>2020-08-02T20:12:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://00010110.github.io/</loc>
+    <loc>https://00010110.github.io/post/</loc>
+    <lastmod>2020-08-02T20:12:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://00010110.github.io/post/test/</loc>
+    <lastmod>2020-08-02T20:12:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://00010110.github.io/post/some-content/</loc>
+    <lastmod>2020-08-02T16:46:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://00010110.github.io/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

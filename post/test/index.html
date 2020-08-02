@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Test - MaxHo - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="MaxHo" /><meta name="description" content="linux通信模型 linux的通信模型，大致可以划分成网络IO模型和进/线程模型两大部分。 在了解这些模型前，我们先了解下一些前置知识。 进程的" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://00010110.github.io/post/test/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Test" />
+<meta property="og:description" content="linux通信模型 linux的通信模型，大致可以划分成网络IO模型和进/线程模型两大部分。 在了解这些模型前，我们先了解下一些前置知识。 进程的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://00010110.github.io/post/test/" />
+<meta property="article:published_time" content="2020-08-02T20:12:38+08:00" />
+<meta property="article:modified_time" content="2020-08-02T20:12:38+08:00" />
+<meta itemprop="name" content="Test">
+<meta itemprop="description" content="linux通信模型 linux的通信模型，大致可以划分成网络IO模型和进/线程模型两大部分。 在了解这些模型前，我们先了解下一些前置知识。 进程的">
+<meta itemprop="datePublished" content="2020-08-02T20:12:38+08:00" />
+<meta itemprop="dateModified" content="2020-08-02T20:12:38+08:00" />
+<meta itemprop="wordCount" content="1871">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Test"/>
+<meta name="twitter:description" content="linux通信模型 linux的通信模型，大致可以划分成网络IO模型和进/线程模型两大部分。 在了解这些模型前，我们先了解下一些前置知识。 进程的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">MaxHO</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">MaxHO</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Test</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-02 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#unix下的五种io模型">UNIX下的五种IO模型</a></li>
+        <li><a href="#进程线程模型">进程/线程模型</a></li>
+      </ul>
+    </li>
+    <li><a href="#reactor模式">Reactor模式</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="linux通信模型">linux通信模型</h1>
+<p>linux的通信模型，大致可以划分成网络IO模型和进/线程模型两大部分。</p>
+<p>在了解这些模型前，我们先了解下一些前置知识。</p>
+<ul>
+<li>进程的状态
+<img src="https://markdown-pictures-1255766832.cos.ap-guangzhou.myqcloud.com/networkModel/processLiving.svg" alt="processLiving"></li>
+<li>阻塞调用与非阻塞调用
+<ul>
+<li>阻塞调用是指调用系统函数时，没得到结果的时候，进程是否会被阻塞。失效性不足。</li>
+<li>非阻塞调用是指不能立刻得到结果之前，这个进程不会被阻塞，时间片内一直占用cpu资源。</li>
+<li>阻塞与非阻塞这两个概念讨论的是发起系统调用的对象(例如用户态进程)。</li>
+</ul>
+</li>
+<li>进程的IO事件通常包括两个不同的阶段
+<ul>
+<li>等待数据准备好</li>
+<li>从内核向进程复制数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="unix下的五种io模型">UNIX下的五种IO模型</h3>
+<ol>
+<li>
+<h5 id="阻塞式io模型">阻塞式I/O模型</h5>
+</li>
+</ol>
+<p><img src="https://markdown-pictures-1255766832.cos.ap-guangzhou.myqcloud.com/networkModel/io_blocking.svg" alt="">
+这种IO模型，只能使用ppc或者tpc。并发连接多的时候，对系统资源占用比较多。
+2. ##### 非阻塞式I/O模型
+<img src="https://markdown-pictures-1255766832.cos.ap-guangzhou.myqcloud.com/networkModel/io_no_blocking.svg" alt="">
+这种IO模型，有点浪费cpu资源，因为它会做大量的无用轮训。
+3. ##### IO多路复用模型
+<img src="https://markdown-pictures-1255766832.cos.ap-guangzhou.myqcloud.com/networkModel/io_mutil_blocking.svg" alt="">
+这种IO模型是非阻塞同步的。select，poll，epoll就是实现这种IO多路复用思想的内核机制。
+4. ##### 信号驱动式IO模型
+<img src="https://markdown-pictures-1255766832.cos.ap-guangzhou.myqcloud.com/networkModel/io_signal_blocking.svg" alt="">
+5. ##### 异步IO模型
+<img src="https://markdown-pictures-1255766832.cos.ap-guangzhou.myqcloud.com/networkModel/aio_blocking.svg" alt=""></p>
+<h4 id="下面重点讲述下io多路复用模型中的select机制和epoll的工作原理">下面重点讲述下IO多路复用模型中的select机制和epoll的工作原理。</h4>
+<h5 id="select">select</h5>
+<p>看一个小demo</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;?php
+//创建一个tcp socket服务器
+$host = &#39;0.0.0.0&#39;;
+$port = 8888;
+$tcp_socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+//绑定IP端口
+socket_bind($tcp_socket, $host, $port);
+//启动监听
+socket_listen($tcp_socket);
+//select也要监听listen_socket上发生事件，简单demo只针对read事件。
+$client = [ $tcp_socket ];
+$write = [];
+$exp = [];
+// 开始死循环
+while (true) {
+    //初始化&amp;&amp;更新需要监听的socket集合
+    $read = $client;
+    if (socket_select($read, $write, $exp, null) &gt; 0) {
+        // 判断listen_socket有没有发生变化
+        if (in_array($tcp_socket, $read)) {
+            // 将客户端socket加入到client数组中
+            $client_socket = socket_accept($tcp_socket);
+            $client[] = $client_socket;
+            // 然后去重
+            $key = array_search($tcp_socket, $read);
+            unset($read[ $key ]);
+        }
+        // 查看是否有其他read事件。
+        if (count($read) &gt; 0) {
+            foreach ($read as $socket_item) {
+                // 从可读取的fd中读取出来数据内容
+                $content = socket_read($socket_item, 2048);
+                // 循环client数组，将内容发送给其余所有客户端
+                foreach ($client as $client_socket) {
+                    // 只发给其他客户端client。
+                    if ($client_socket != $tcp_socket &amp;&amp; $client_socket != $socket_item) {
+                        socket_write($client_socket, $content, strlen($content));
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="epoll">epoll</h5>
+<p>epoll工作原理图大致如下：</p>
+<p><img src="https://markdown-pictures-1255766832.cos.ap-guangzhou.myqcloud.com/networkModel/epoll_working_model%20.svg" alt=""></p>
+<p>其中两个函数比较关键</p>
+<p>** ep_ptable_queue_proc **</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">static void ep_ptable_queue_proc(struct file *file, wait_queue_head_t *whead,
+                 poll_table *pt)
+{
+    struct epitem *epi = ep_item_from_epqueue(pt);
+    struct eppoll_entry *pwq;  //[小节2.4.7]
+
+    if (epi-&gt;nwait &gt;= 0 &amp;&amp; (pwq = kmem_cache_alloc(pwq_cache, GFP_KERNEL))) {
+        //初始化回调方法
+        init_waitqueue_func_entry(&amp;pwq-&gt;wait, ep_poll_callback);
+        pwq-&gt;whead = whead;
+        pwq-&gt;base = epi;
+        //将ep_poll_callback放入等待队列whead
+        add_wait_queue(whead, &amp;pwq-&gt;wait);
+        //将llink 放入epi-&gt;pwqlist的尾部
+        list_add_tail(&amp;pwq-&gt;llink, &amp;epi-&gt;pwqlist);
+        epi-&gt;nwait++;
+    } else {
+        epi-&gt;nwait = -1; //标记错误发生
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>这个函数主要是实现关联epitem和具体的socket文件，而且注册了回调函数ep_poll_callback。</p>
+<p>** ep_poll_callback **</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">static int ep_poll_callback(wait_queue_t *wait, unsigned mode, int sync, void *key)
+{
+    int pwake = 0;
+    unsigned long flags;
+    struct epitem *epi = ep_item_from_wait(wait);
+    struct eventpoll *ep = epi-&gt;ep;
+
+    spin_lock_irqsave(&amp;ep-&gt;lock, flags);
+     // 如果正在将事件传递给用户空间，我们就不能保持锁定
+     //（因为我们正在访问用户内存，并且因为linux f_op-&gt; poll()语义）。
+     // 在那段时间内发生的所有事件都链接在ep-&gt; ovflist中并在稍后重新排队。
+    if (unlikely(ep-&gt;ovflist != EP_UNACTIVE_PTR)) {
+        if (epi-&gt;next == EP_UNACTIVE_PTR) {
+            epi-&gt;next = ep-&gt;ovflist;
+            ep-&gt;ovflist = epi;
+            if (epi-&gt;ws) {
+                __pm_stay_awake(ep-&gt;ws);
+            }
+        }
+        goto out_unlock;
+    }
+
+    //如果此文件已在就绪列表中，很快就会退出
+    if (!ep_is_linked(&amp;epi-&gt;rdllink)) {
+        //将epi就绪事件 插入到ep就绪队列
+        list_add_tail(&amp;epi-&gt;rdllink, &amp;ep-&gt;rdllist);
+        ep_pm_stay_awake_rcu(epi);
+    }
+
+    // 如果活跃，唤醒eventpoll等待队列和 -&gt;poll()等待队列
+    if (waitqueue_active(&amp;ep-&gt;wq))
+        wake_up_locked(&amp;ep-&gt;wq);  //当队列不为空，则唤醒进程
+    if (waitqueue_active(&amp;ep-&gt;poll_wait))
+        pwake++;
+
+out_unlock:
+    spin_unlock_irqrestore(&amp;ep-&gt;lock, flags);
+    if (pwake)
+        ep_poll_safewake(&amp;ep-&gt;poll_wait);
+
+    if ((unsigned long)key &amp; POLLFREE) {
+        list_del_init(&amp;wait-&gt;task_list); //删除相应的wait
+        smp_store_release(&amp;ep_pwq_from_wait(wait)-&gt;whead, NULL);
+    }
+    return 1;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>这个回调函数，主要作用于socket事件到达时触发。将该epitem存放于epoll_isntance的readylist链表中。</p>
+<h3 id="进程线程模型">进程/线程模型</h3>
+<ul>
+<li>单进程</li>
+<li>多进程</li>
+<li>多线程</li>
+</ul>
+<h2 id="reactor模式">Reactor模式</h2>
+<p>首先我们先看一下最传统的通信模型，pps和tps。即一个连接一个线程。</p>
+<p><img src="https://markdown-pictures-1255766832.cos.ap-guangzhou.myqcloud.com/networkModel/classic_commu.svg" alt=""></p>
+<p>这种通信形态是由于阻塞型IO的先天不足决定的。弊端显而易见，并发连接低下。</p>
+<p>为了应对高并发业务场景，reactor就出现了。本质上，reactor模式就是IO多路复用模型加上进/线程模型的组合。解决了传统通信模型的短板。
+reactor设计模式的类图大致如下</p>
+<p><img src="https://markdown-pictures-1255766832.cos.ap-guangzhou.myqcloud.com/networkModel/reactor_class_ok.svg" alt=""></p>
+<p>reactor模式的大致工作流程大致如下。
+<img src="https://markdown-pictures-1255766832.cos.ap-guangzhou.myqcloud.com/networkModel/reactor_flow.svg" alt=""></p>
+<p>其中servicehandle(master进程)和Eventhandle(woker进程)可以使用不同的进程模型进行组合，
+理论上有Reactor有四种形式。由于多master单worker进程模式先天不足。所以有3种典型的实现：</p>
+<ul>
+<li>单servicehandle单线程(redis)</li>
+<li>单servicehandle多线程</li>
+<li>主从servicehandle多线程(nginx)</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">MaxHo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-08-02
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/wechat-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/path/to/your/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/some-content/">
+            <span class="next-text nav-default">Some Content</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">MaxHo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
